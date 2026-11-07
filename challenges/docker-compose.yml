@@ -1,0 +1,60 @@
+services:
+  beginner:
+    build:
+      context: ./beginner
+      dockerfile: Dockerfile
+    container_name: ctf-beginner
+    restart: unless-stopped
+    read_only: true
+    ports:
+      - "5000:5000"
+
+  easy-ret2win:
+    build:
+      context: ./easy/ret2win
+      dockerfile: Dockerfile
+    container_name: ctf-easy-ret2win
+    restart: unless-stopped
+    read_only: true
+    ports:
+      - "5001:5000"
+
+  medium-shellcode-runner:
+    build:
+      context: ./medium/shellcode_runner
+      dockerfile: Dockerfile
+    container_name: ctf-medium-shellcode-runner
+    restart: unless-stopped
+    read_only: true
+    ports:
+      - "5002:5000"
+
+  medium-format-leak:
+    build:
+      context: ./medium/format_leak
+      dockerfile: Dockerfile
+    container_name: ctf-medium-format-leak
+    restart: unless-stopped
+    read_only: true
+    ports:
+      - "5003:5000"
+
+  hard-ret2libc:
+    build:
+      context: ./hard/ret2libc
+      dockerfile: Dockerfile
+    container_name: ctf-hard-ret2libc
+    restart: unless-stopped
+    read_only: true
+    ports:
+      - "5004:5000"
+
+  hard-canary-leak:
+    build:
+      context: ./hard/canary_leak
+      dockerfile: Dockerfile
+    container_name: ctf-hard-canary-leak
+    restart: unless-stopped
+    read_only: true
+    ports:
+      - "5005:5000"
